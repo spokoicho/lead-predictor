@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimate lead conversion potential with a clear, weighted score.">
+  <meta name="theme-color" content="#111827">
+  <title>LeadPredictor — Lead Scoring Calculator</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <a class="brand" href="/" aria-label="LeadPredictor home">
+        <span class="brand-mark" aria-hidden="true">LP</span>
+        <span>LeadPredictor</span>
+      </a>
+      <div class="intro-copy">
+        <p class="eyebrow">Smarter lead qualification</p>
+        <h1 id="page-title">Know which leads deserve your attention.</h1>
+        <p class="lede">Turn four practical buying signals into a focused, explainable priority score.</p>
+      </div>
+      <ul class="benefits" aria-label="Product benefits">
+        <li><span>01</span> Fast and transparent</li>
+        <li><span>02</span> No data leaves your browser</li>
+        <li><span>03</span> Built for daily sales triage</li>
+      </ul>
+    </section>
+
+    <section class="calculator" aria-labelledby="calculator-title">
+      <header class="calculator-header">
+        <div>
+          <p class="eyebrow">Lead assessment</p>
+          <h2 id="calculator-title">Calculate potential</h2>
+        </div>
+        <button class="text-button" id="resetButton" type="button">Reset</button>
+      </header>
+
+      <form id="leadForm">
+        <fieldset>
+          <legend>Company fit</legend>
+          <div class="option-grid">
+            <label><input type="radio" name="companyFit" value="30" checked><span>Ideal<small>Matches your ICP</small></span></label>
+            <label><input type="radio" name="companyFit" value="20"><span>Good<small>Most criteria fit</small></span></label>
+            <label><input type="radio" name="companyFit" value="8"><span>Low<small>Limited fit</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Engagement level</legend>
+          <label class="range-row" for="engagement">
+            <span><strong id="engagementLabel">Active</strong><small>Website, email and meeting activity</small></span>
+            <output id="engagementOutput" for="engagement">7 / 10</output>
+          </label>
+          <input id="engagement" name="engagement" type="range" min="0" max="10" value="7">
+        </fieldset>
+
+        <div class="field-row">
+          <label for="budget">Budget readiness
+            <select id="budget" name="budget">
+              <option value="20">Confirmed budget</option>
+              <option value="13" selected>Budget discussed</option>
+              <option value="5">Unknown</option>
+              <option value="0">No budget</option>
+            </select>
+          </label>
+          <label for="timeline">Purchase timeline
+            <select id="timeline" name="timeline">
+              <option value="20">Within 30 days</option>
+              <option value="14" selected>1–3 months</option>
+              <option value="7">3–6 months</option>
+              <option value="2">6+ months</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="primary-button" type="submit">Calculate lead score <span aria-hidden="true">→</span></button>
+      </form>
+
+      <section class="result" id="result" aria-live="polite" aria-atomic="true">
+        <div class="score-ring" id="scoreRing"><strong id="score">78</strong><span>/ 100</span></div>
+        <div class="result-copy">
+          <p class="status" id="status">Warm lead</p>
+          <h3 id="resultTitle">Worth a focused follow-up.</h3>
+          <p id="resultText">Good fit and clear engagement make this lead a strong near-term opportunity.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer>LeadPredictor · A simple decision-support tool</footer>
+</body>
+</html>
